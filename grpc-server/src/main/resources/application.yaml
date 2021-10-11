@@ -1,0 +1,21 @@
+grpc:
+
+  enableReflection: true
+  enabled: true
+  security:
+    cert-chain: classpath:certificate.pem
+    private-key: classpath:cert.key
+server:
+  port: 8082
+#  http2:
+#    enabled: true
+#  ssl:
+#    key-store-type: PKCS12
+#    key-store: classpath:keystore.p12
+#    key-store-password: password
+#    key-password: password
+#    enabled: true
+#logging:
+#  level:
+#    io.grpc.netty: DEBUG
+#    io.netty: DEBUG

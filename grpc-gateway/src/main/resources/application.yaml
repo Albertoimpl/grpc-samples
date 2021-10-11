@@ -1,0 +1,35 @@
+server:
+  http2:
+    enabled: true
+  port: 8090
+  ssl:
+    key-store-type: PKCS12
+    key-store: classpath:keystore.p12
+    key-store-password: password
+    key-password: password
+    enabled: true
+spring:
+  cloud:
+    gateway:
+      httpserver:
+        wiretap: true
+      httpclient:
+        ssl:
+          key-store-type: PKCS12
+          key-store: classpath:keystore.p12
+          key-store-password: password
+          key-password: password
+          use-insecure-trust-manager: true
+          close-notify-read-timeout: 5000ms
+        wiretap: true
+      routes:
+        - id: grpc
+          uri: https://localhost:6565
+          predicates:
+            - Path=/**
+          filters:
+            - AddResponseHeader=X-Request-red, blue
+logging:
+  level:
+    reactor.netty: DEBUG
+    org.springframework.cloud.gateway.filter: TRACE
