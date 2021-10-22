@@ -31,7 +31,8 @@ import java.util.concurrent.TimeUnit;
 
 import static io.grpc.netty.shaded.io.grpc.netty.NegotiationType.TLS;
 
-@SpringBootApplication public class GrpcClientStreamingApplication
+//@SpringBootApplication
+public class GrpcClientStreamingApplication
 		implements ApplicationRunner {
 
 		public static void main(String[] args) {
